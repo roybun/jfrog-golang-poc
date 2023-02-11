@@ -10,3 +10,4 @@ vendor
 golanggrpcpoc
 *.bin
 .jfrog
+jfrog_vars.env

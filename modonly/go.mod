@@ -1,4 +1,4 @@
-module roybunting.com/poc/golanggrpjfrog
+module local
 
 go 1.19
 

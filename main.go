@@ -10,6 +10,7 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
+	"go.bug.st/serial"
 	"google.golang.org/grpc"
 	"roybunting.com/poc/golanggrpjfrog/protos"
 )
@@ -47,4 +48,14 @@ func main() {
 	})
 
 	http.ListenAndServe(":3333", r)
+	ports, err := serial.GetPortsList()
+	if err != nil {
+		log.Fatal(err)
+	}
+	if len(ports) == 0 {
+		log.Fatal("No serial ports found!")
+	}
+	for _, port := range ports {
+		fmt.Printf("Found port: %v\n", port)
+	}
 }
